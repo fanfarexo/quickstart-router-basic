@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -8,6 +8,7 @@ import { useState } from 'react';
 // import SongDetail from './pages/SongDetail';
 import Player from './pages/songs/Player';
 import SongIndex from './pages/songs/Index';
+import NotFound from './components/NotFound';
 
 export type MemberType = {
   name: string;
@@ -52,13 +53,15 @@ const App = () => {
       <div className='container'>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Navigate to='/home' />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About title={'여우와 늙다리들'} />} />
           <Route path='/members' element={<Members members={members} />} />
           <Route path='/songs' element={<SongList songs={songs} />}>
             <Route index element={<SongIndex />} />
             <Route path=':id' element={<Player />} />
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
     </Router>
