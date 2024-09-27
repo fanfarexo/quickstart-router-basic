@@ -4,8 +4,23 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Members from './pages/Members';
 import SongList from './pages/SongList';
+import { useState } from 'react';
+
+export type MemberType = {
+  name: string;
+  photo: string;
+};
 
 const App = () => {
+  const [members] = useState<MemberType[]>([
+    { name: 'Maggie Adams', photo: 'photos/Mag.png' },
+    { name: 'Sammie Purcell', photo: 'photos/Sam.png' },
+    { name: 'Tim Purcell', photo: 'photos/Tim.png' },
+    { name: 'Scott King', photo: 'photos/King.png' },
+    { name: 'Johnny Pike', photo: 'photos/JPike.jpg' },
+    { name: 'Toby Ruckert', photo: 'photos/Toby.jpg' },
+  ]);
+
   return (
     <Router>
       <div className='container'>
@@ -13,7 +28,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About title={'여우와 늙다리들'} />} />
-          <Route path='/members' element={<Members />} />
+          <Route path='/members' element={<Members members={members} />} />
           <Route path='/songs' element={<SongList />} />
         </Routes>
       </div>
