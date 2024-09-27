@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { SongType } from '../App';
 
 type Props = {
@@ -20,6 +20,7 @@ const SongList = (props: Props) => {
     <div className='card card-body'>
       <h2 className='mt-4 mb-2'>SongList</h2>
       <ul className='list-group'>{list}</ul>
+      <Outlet />
     </div>
   );
 };
