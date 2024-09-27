@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -11,18 +11,38 @@ const Header = () => {
       </div>
       <div className='row'>
         <div className='col-12'>
-          <Link to='/' className='btn btn-success menu'>
+          <NavLink
+            to='/home'
+            className={({ isActive }) => {
+              return isActive ? 'btn menu btn-dark' : 'btn btn-success menu';
+            }}
+          >
             Home
-          </Link>
-          <Link to='/about' className='btn btn-success menu'>
+          </NavLink>
+          <NavLink
+            to='/about'
+            className={({ isActive }) => {
+              return isActive ? 'btn menu btn-dark' : 'btn btn-success menu';
+            }}
+          >
             About
-          </Link>
-          <Link to='/members' className='btn btn-success menu'>
+          </NavLink>
+          <NavLink
+            to='/members'
+            className={({ isActive }) => {
+              return isActive ? 'btn menu btn-dark' : 'btn btn-success menu';
+            }}
+          >
             Members
-          </Link>
-          <Link to='/songs' className='btn btn-success menu'>
+          </NavLink>
+          <NavLink
+            to='/songs'
+            className={({ isActive }) => {
+              return isActive ? 'btn menu btn-dark' : 'btn btn-success menu';
+            }}
+          >
             Songs
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>
