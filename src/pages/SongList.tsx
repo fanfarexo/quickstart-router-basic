@@ -26,7 +26,7 @@ const SongList = (props: Props) => {
     <div>
       <h2 className='mt-4 mb-2'>SongList</h2>
       <ul className='list-group'>{list}</ul>
-      <Outlet />
+      <Outlet context={{ songs: props.songs }} />
     </div>
   );
 };
